@@ -14,8 +14,18 @@
     </div>
 
     <div class="form-group">
-      <label>Bio</label>
-      <%= f.text_area :bio, rows: 5, placeholder: "Say something about yourself", class: "form-control" %>
+      <label>Street name</label>
+      <%= f.text_field :street, placeholder: "Streetname", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Street number</label>
+      <%= f.number_field :streetnumber, placeholder: "Street number", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>ZIP Code</label>
+      <%= f.text_field :zipcode, placeholder: "Streetname", class: "form-control" %>
     </div>
 
     <div class="actions">
@@ -23,3 +33,22 @@
       <%= link_to "Back", root_path, class: "btn btn-default" %>
     </div>
 <% end %>
+
+
+
+t.boolean  "female"
+t.string   "first_name"
+t.string   "last_name"
+t.string   "street"
+t.integer  "streetnumber"
+t.string   "zipcode"
+t.string   "city"
+t.string   "phone_number"
+t.date     "birth_date"
+t.boolean  "dead"
+t.boolean  "newsletter"
+t.belongs_to :user
+t.integer  "user_id"
+t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
+t.datetime "created_at",   null: false
+t.datetime "updated_at",   null: false
