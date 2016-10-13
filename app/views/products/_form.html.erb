@@ -1,0 +1,40 @@
+<div class="form">
+  <%= form_for @product do |i| %>
+
+      <%= i.label :name %>:<br/>
+      <%= i.text_field :name, placeholder: "Insert name..."%><br />
+
+
+      <%= i.label :description %>:<br/>
+      <%= i.text_field :description, placeholder: "Insert long description..." %><br />
+
+      <%= i.label :short_description %>:<br/>
+      <%= i.text_field :short_description, placeholder: "Insert short description..." %><br />
+
+      <%= i.label :price %>:<br/>
+      <%= i.number_field :price, placeholder: "Insert price"  %><br />
+
+      <%= i.label :brand %>:<br/>
+      <%= i.text_field :brand, placeholder: "Insert brand"  %><br />
+
+      <%= i.label :image %>:<br/>
+      <%= i.text_field :image, placeholder: "Insert image url"  %><br />
+
+      <%= i.label :color %>:<br/>
+      <%= i.text_field :color, placeholder: "Insert color"  %><br />
+
+      <%= i.label :amount %>:<br/>
+      <%= i.number_field :amount, placeholder: "Insert amount"  %><br />
+      <!--TODO: bools for_male, for_female, featured-->
+
+
+
+
+      <!--if new record, button text is "create" , else it is "update"-->
+      <%= i.submit (@product.new_record? ? "Add product" : "Edit pruduct") %><br />
+  <% end %>
+</div>
+
+
+
+

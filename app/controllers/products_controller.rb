@@ -13,13 +13,10 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find( params[:id] )
+    @product = Product.find(params[:id])
 
-    #TODO
-    #product_params = params.require( :product ).permit(:name, :amount, :expire, :category_id, :location_id)
-
-    if @product.update_attributes( product_params )
-      redirect_to @procuct
+    if @product.update_attributes(product_params)
+      redirect_to @product
     else
       render 'edit'
     end
@@ -41,8 +38,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    #TODO
-    #product_params = params.require( :product ).permit(:name, :amount, :expire, :category_id, :location_id)
 
     @product = Product.new(product_params)
 
@@ -51,6 +46,12 @@ class ProductsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  private
+
+  def product_params
+    params.require( :product ).permit(:name, :description, :short_description, :price, :brand, :image, :amount, :color)
   end
 
 
