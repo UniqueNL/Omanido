@@ -5,20 +5,20 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @products = Product.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @products = Product.find(params[:id])
   end
 
   def update
-    @product = Product.find( params[:id] )
+    @products = Product.find( params[:id] )
 
     #TODO
     #product_params = params.require( :product ).permit(:name, :amount, :expire, :category_id, :location_id)
 
-    if @product.update_attributes( product_params )
+    if @products.update_attributes( product_params )
       redirect_to @procuct
     else
       render 'edit'
