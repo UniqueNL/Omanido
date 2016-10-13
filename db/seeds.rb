@@ -1,5 +1,5 @@
-Category.delete_all
 Product.delete_all
+Category.delete_all
 User.delete_all
 
 product1 = Product.create(name: "Digitale klok met temperatuur", amount: 23, image: "http://res.cloudinary.com/mippet/image/upload/v1476367572/omanido/digitale-klok-met-temperatuur-weergave.jpg", price: 34.20, description: "lorem ipsum ", short_description: "Enorm handige klok met temperatuur en datum vermelding")
@@ -32,7 +32,7 @@ category3 = Category.create(name: "Vergrootglazen", image: "http://res.cloudinar
 category4 = Category.create(name: "Keuken", image: "http://res.cloudinary.com/mippet/image/upload/v1476368590/omanido/Keuken.jpg")
 category5 = Category.create(name: "Badkamer", image: "http://res.cloudinary.com/mippet/image/upload/v1476368610/omanido/Badkamer.jpg")
 category6 = Category.create(name: "Slaapkamer", image: "http://res.cloudinary.com/mippet/image/upload/v1476368642/omanido/Slaapkamer.jpg")
-user1 = User.create(email: "test1@test.nl", password:"test123")
+user1 = User.create(email: "test1@test.nl", password:"test123", admin: true)
 user2 = User.create(email: "test2@test.nl", password:"test123")
 user3 = User.create(email: "test3@test.nl", password:"test123")
 user4 = User.create(email: "test4@test.nl", password:"test123")

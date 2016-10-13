@@ -1,3 +1,30 @@
-<!--<h1><%= @product.name %></h1>-->
+<h1><%= @product.name %></h1>
 
-<h1>TTTT</h1>
+
+<!--short description-->
+<p><%=@product.short_description%></p>
+
+<hr>
+
+
+<!--image-->
+<img src="<%=@product.image%>" />
+
+<hr>
+
+<!--long descriotion-->
+<h3><%=@product.description%></h3>
+
+<!--price-->
+<h2><%=@product.price%></h2>
+
+<!--color-->
+<h3><%=@product.color%></h3>
+
+
+
+
+<%= link_to "[Edit]", edit_product_path( @product.id ) %>
+<%= link_to "[Delete]", product_path( @product.id ), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<%= link_to "[TERUG]", products_path%>
