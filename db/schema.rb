@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20161012142528) do
     t.date     "birth_date"
     t.boolean  "dead"
     t.boolean  "newsletter"
+    t.belongs_to :user
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

@@ -15,6 +15,8 @@ category1 = Category.create(name: "Technology", image: "")
 category2 = Category.create(name: "Books", image: "")
 category3 = Category.create(name: "Furniture", image: "")
 user1 = User.create(email: "samtaal@gmail.com", password:"test123")
+user2 = User.create(email: "henk@hotmail.com", password:"test123")
+user3 = User.create(email: "piet@outlook.com", password:"test123")
 
 category1.products << [product2]
 category2.products << [product1]
