@@ -1,5 +1,5 @@
-Category.delete_all
 Product.delete_all
+Category.delete_all
 User.delete_all
 
 product1 = Product.create(name: "Digitale klok met temperatuur", amount: 23, image: "http://res.cloudinary.com/mippet/image/upload/v1476367572/omanido/digitale-klok-met-temperatuur-weergave.jpg", price: 34.20, description: "lorem ipsum ", short_description: "Enorm handige klok met temperatuur en datum vermelding")
