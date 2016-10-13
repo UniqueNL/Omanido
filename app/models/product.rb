@@ -1,26 +1,30 @@
 class Product < ApplicationRecord
   belongs_to :category
-  # validates :name, presence: true,
-  #           :length => { :maximum => 50}
-  # validates :description, presence: true,
-  #           :length => { :maximum => 500}
-  # validates :short_description, presence: true,
-  #           :length => { :maximum => 100}
-  # validates :price, presence: true,
-  #           :numericality => { :only_integer => true }
+
+  validates :name, presence: true,
+            :length => { :maximum => 50}
+  validates :description, presence: true,
+            :length => { :maximum => 500}
+  validates :short_description, presence: true,
+            :length => { :maximum => 100}
+  validates :price, presence: true,
+            :numericality => true
   # validates :brand, presence: true,
-  #           :length => { :maximum => 50}
-  # validates :image, presence: true
-  # validates :color, presence: true
-  # validates :amount, presence: true,
-  #           :numericality => true
+  #           :length => { :maximum => 50},
+  #           :allow_nil => true
+  # validates :image, presence: true,
+  #           :allow_nil => true
+  # validates :color, presence: true,
+  #           :allow_nil => true
+  validates :amount, presence: true,
+            :numericality => true
   # validates :for_female, presence: true,
   #           :allow_nil => true
   # validates :for_male, presence: true,
   #           :allow_nil => true
   # validates :featured, presence: true,
   #           :allow_nil => true
-  # validates :category, presence: true
+  validates :category, presence: true
 
 
   def self.order_by_name
