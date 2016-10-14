@@ -1,0 +1,24 @@
+<h1>Your cart</h1>
+
+<%= link_to 'Empty your cart', cart_clear_path, data: {confirm: "Are you sure?"} %>
+<%= link_to 'Verder winkelen' ,products_path %>
+
+<br>
+<br>
+<br>
+
+    <% @cart.each do | id, amount| %>
+      <% product = Product.find_by_id( id)%>
+
+
+
+        <p><h1><%= product.name %></h1></p>
+        <p><%= product.description %></p>
+        <p><img src="<%= product.image %>" /></p>
+        <p><%= product.price %></p>
+        <p><%=  0 + amount%></p>
+    <%= link_to "Go to product page", product %>
+    </li>
+
+<% end %>
+
