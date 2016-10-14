@@ -1,6 +1,5 @@
 <h1>Products</h1>
 
-
   <% @products.each do |product| %>
     <div class="product-box">
       <div class="product-box-image"><img class= "product-thumb"  src="<%=product.image%>" /></div>
@@ -14,7 +13,7 @@
 
               <a href=" /cart/<%= product.id %>"><div class="product-buy-button btn btn-success">Add To Cart</div></a>
       </div>
-      
+
     </div>
 
     <div class="clear"></div>
