@@ -23,13 +23,20 @@
 <!--color-->
 <h3><%=@product.color%></h3>
 
+<<<<<<< HEAD
 <a href=" /cart/<%= @product.id %>"><div class="product-buy-button btn btn-success">Add To Cart</div></a><br/>
+<!---->
+  <%= link_to "[Edit]", edit_product_path( @product.id ) %>
+  <%= link_to "[Delete]", product_path( @product.id ), method: :delete, data: { confirm: "Are you sure?" } %>
+=======
+
   <% if current_user && current_user.is_admin? %>
     <%= link_to "[Edit]", edit_product_path( @product.id ) %>
     <%= link_to "[Delete]", product_path( @product.id ), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 
 
+>>>>>>> master
 
 <%= link_to "[TERUG]", products_path%>
 </div>
