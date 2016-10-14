@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 
     @product.destroy
 
-    redirect_to products_path_path
+    redirect_to products_path
   end
 
 

@@ -4,11 +4,14 @@ The shop for all your<br />
 elderly products<br />
 <a href="/products"><div class="go-to-shop--button">Start shopping</div></a>
 </div>
-
-<div class="featured">
+  <h1>Featured items</h1>
   <% @products.each do |product| %>
       <% if product.is_featured? %>
-        <%= link_to product.name, product_path(product.id)%>
+      <div class="featured">
+        <div class="product-box-image no-float"><img class= "product-thumb"  src="<%=product.image%>" /></div>
+        <%= link_to product.name, product_path(product.id)%><br />
+        € <%= product.price %><br />
+        <%= link_to "Show detailed information", product_path( product.id ), :class => "btn btn-primary btn-sm" %>
+              </div>
       <% end %>
   <% end %>
-</div>
