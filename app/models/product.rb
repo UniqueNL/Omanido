@@ -26,6 +26,9 @@ class Product < ApplicationRecord
   #           :allow_nil => true
   validates :category, presence: true
 
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+  end
 
   def self.order_by_name
     order(:name)
