@@ -27,11 +27,23 @@ class Product < ApplicationRecord
   validates :category, presence: true
 
   def self.search(search)
-    where("name LIKE ?", "%#{search}%")
+    where("name iLIKE ?", "%#{search}%")
   end
 
   def self.order_by_name
     order(:name)
+  end
+
+  def is_featured?
+    featured == true
+  end
+
+  def self.order_asc
+    order('name ASC')
+  end
+
+  def self.order_desc
+    order('name DESC')
   end
 
   # def self.order_by_date

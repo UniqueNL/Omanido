@@ -2,5 +2,13 @@
 
 The shop for all your<br />
 elderly products<br />
-<div class="go-to-shop--button">Start shopping</div>
+<a href="/products"><div class="go-to-shop--button">Start shopping</div></a>
+</div>
+
+<div class="featured">
+  <% @products.each do |product| %>
+      <% if product.is_featured? %>
+        <%= link_to product.name, product_path(product.id)%>
+      <% end %>
+  <% end %>
 </div>
