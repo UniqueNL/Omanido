@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.order_by_category
+    if params[:search]
+      @products = Product.search(params[:search]).order_by_name
+    else
+      @products = Product.order('name ASC')
+    end
   end
 
   def show
