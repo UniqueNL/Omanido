@@ -1,9 +1,9 @@
 <h1>Products</h1>
 
 
-
   <% @products.each do |product| %>
     <p><%= link_to product.name, product_path(product.id)%></p>
+    <p><a href=" /cart/<%= product.id %>"> Add To Cart</a></p>
     <img class= "product-thumb"  src="<%=product.image%>" />
     <p><%= product.short_description %></p>
     <p>€ <%= product.price %></p>
@@ -16,6 +16,7 @@
     <br>
 
   <%end%>
+
 
 
 
