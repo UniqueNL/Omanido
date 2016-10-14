@@ -1,8 +1,23 @@
 <h1>Products</h1>
 
 
-<% @products.each do |product| %>
+  <% @products.each do |product| %>
     <p><%= link_to product.name, product_path(product.id)%></p>
     <p><a href=" /cart/<%= product.id %>"> Add To Cart</a></p>
-<% end %>
+    <img class= "product-thumb"  src="<%=product.image%>" />
+    <p><%= product.short_description %></p>
+    <p>€ <%= product.price %></p>
+    <hr>
+    <!--knop bekijk!-->
+    <%= link_to "[Show me!]", product_path( product.id ) %>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  <%end%>
+
+
+
+
 
