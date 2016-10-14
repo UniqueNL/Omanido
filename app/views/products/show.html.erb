@@ -1,3 +1,5 @@
+<div class="product-one">
+
 <h1><%= @product.name %></h1>
 
 
@@ -13,17 +15,18 @@
 <hr>
 
 <!--long descriotion-->
-<h3><%=@product.description%></h3>
+<p><%=@product.description%></p>
 
 <!--price-->
-<h2><%=@product.price%></h2>
+<h2>Price: <%=@product.price%></h2>
 
 <!--color-->
 <h3><%=@product.color%></h3>
 
-
+<a href=" /cart/<%= @product.id %>"><div class="product-buy-button btn btn-success">Add To Cart</div></a><br/>
 <!---->
   <%= link_to "[Edit]", edit_product_path( @product.id ) %>
   <%= link_to "[Delete]", product_path( @product.id ), method: :delete, data: { confirm: "Are you sure?" } %>
 
 <%= link_to "[TERUG]", products_path%>
+</div>
