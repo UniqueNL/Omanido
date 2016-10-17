@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
+  helper_method :sort_products, :sort_direction
+
 
   def index
     if params[:search]
       @products = Product.search(params[:search]).order_by_name
     else
-      @products = Product.order('name ASC')
+      #see private methods down below..
+      @products = Product.order(sort_products + ' ' + sort_direction)
     end
   end
 
@@ -59,4 +62,22 @@ class ProductsController < ApplicationController
   end
 
 
+  # considered unsafe -> SQL injections
+  # TODO !!!! sanitize this!
+  def sort_products
+    # defaults to "name"
+    params[:sort] || "name"
+  end
+
+  # considered unsafe -> SQL injections
+  # TODO !!!! sanitize this!
+  def sort_direction
+    params[:direction] || "asc"
+  end
+
+  # http://railscasts.com/episodes/228-sortable-table-columns?view=asciicast
+  # http://railscasts.com/episodes/228-sortable-table-columns?autoplay=true
+
+
 end
+
