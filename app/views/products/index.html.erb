@@ -1,5 +1,10 @@
 <h1>Products</h1>
 
+<!--See application_helper.rb for sortable method-->
+<p><%= sortable "name", "Sort by name" %></p>
+<p><%= sortable "price", "Sort by price" %></p>
+<p><%= sortable "created_at", "Sort by newest" %></p>
+
   <% @products.each do |product| %>
     <div class="product-box">
       <div class="product-box-image"><img class= "product-thumb"  src="<%=product.image%>" /></div>
