@@ -14,7 +14,7 @@
           <h5><b>Omschrijving:</b></h5>
           <%= product.description %>
           <p><img src="<%= product.image %>" width="100" /></p>
-          <p><b>Price: </b><%= product.price %></p>
+          <p><b>Price: </b><%= number_to_currency(product.price, unit: '€') %></p>
           <p><b>Amount: </b><%=  0 + amount%></p>
           <%= link_to "Go to product page", product %>
           <% total += amount * product.price%>
@@ -23,3 +23,5 @@
 <p>Totaal: <%= number_to_currency(total, unit: '€') %></p>
 
 <div class="btn btn-success">Checkout (week 2, not implemented)</div>
+
+
