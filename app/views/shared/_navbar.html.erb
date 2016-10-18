@@ -43,7 +43,7 @@
                   <li><%= link_to "Edit Password", edit_user_registration_path %></li>
 
                   <li role="separator" class="divider"></li>
-                  <% if current_user.is_admin? %>
+                  <% if current_user && current_user.is_admin? %>
                       <li class="dropdown-header">Admin tools</li>
                       <li><%= link_to "Add products", new_product_path %></li>
                       <li role="separator" class="divider"></li>
