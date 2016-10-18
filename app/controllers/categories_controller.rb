@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
-
   def index
     @categories = Category.all
   end
 
   def show
     @category = Category.find(params[:id])
+    @categories = Category.all
+    @products = Product.all
   end
 
   def edit
@@ -50,5 +51,4 @@ class CategoriesController < ApplicationController
       render 'new'
     end
   end
-
 end
