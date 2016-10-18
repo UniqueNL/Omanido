@@ -1,0 +1,22 @@
+  <h1><%= @category.name %></h1>
+
+  <% @products.each do |product| %>
+      <% if product.category[:id] == @category[:id] %>
+      <div class="product-box">
+        <div class="product-box-image"><img class= "product-thumb"  src="<%=product.image%>" /></div>
+        <div class="product-box-text">
+          <h1><%= link_to product.name, product_path(product.id)%></h1>
+          <p><%= product.short_description %></p>
+          <%= link_to "Show detailed information", product_path( product.id ), :class => "btn btn-primary btn-sm" %>
+        </div>
+        <div class="product-box-price">
+          <h2>€ <%= product.price %></h2>
+
+          <a href=" /cart/<%= product.id %>"><div class="product-buy-button btn btn-success">Add To Cart</div></a>
+        </div>
+
+      </div>
+
+      <div class="clear"></div>
+      <% end %>
+  <%end%>

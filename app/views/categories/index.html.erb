@@ -1,5 +1,7 @@
 <h1>Categories</h1>
 
 <% @categories.each do |category| %>
+    <img class= "product-thumb"  src="<%=category.image%>" />
     <p><%= link_to category.name, category_path(category.id) %></p>
+
 <% end %>
