@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @categories = Category.all
     @products = Product.all
+    @products = Product.order(sort_products + ' ' + sort_direction)
   end
 
   def edit
@@ -17,6 +18,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     location_params = params.require( :category ).permit( :name )
+
 
     if @category.update_attributes( location_params )
       redirect_to @category
@@ -52,3 +54,21 @@ class CategoriesController < ApplicationController
     end
   end
 end
+
+# considered unsafe -> SQL injections
+# TODO !!!! sanitize this!
+def sort_products
+  # defaults to "name"
+  params[:sort] || "name"
+end
+
+# considered unsafe -> SQL injections
+# TODO !!!! sanitize this!
+def sort_direction
+  params[:direction] || "asc"
+end
+
+# http://railscasts.com/episodes/228-sortable-table-columns?view=asciicast
+# http://railscasts.com/episodes/228-sortable-table-columns?autoplay=true
+
+
