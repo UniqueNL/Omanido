@@ -6,15 +6,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">
   </head>
 
   <body>
   <!-- Static navbar -->
   <%= render 'shared/navbar' %>
-  <div class="placeholder"></div>
+
+  <% if current_page?(root_path) %>
+    <div class="banner">
+      <div class="container">
+        The shop for all your<br />
+        elderly products<br />
+        <a href="/products"><div class="go-to-shop--button">Start shopping</div></a>
+      </div>
+    </div>
+  <% end %>
+
+  <% if !current_page?(root_path) %>
+    <div class="placeholder"></div>
+  <% end %>
   <div class="container">
     <%= yield %>
   </div>
+
+  <%= render 'shared/footer' %>
 
   <div class="notice-alert"><%= notice %><%= alert %></div>
   </body>
