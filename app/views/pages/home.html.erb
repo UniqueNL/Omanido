@@ -1,9 +1,4 @@
-<div class="banner">
 
-The shop for all your<br />
-elderly products<br />
-<a href="/products"><div class="go-to-shop--button">Start shopping</div></a>
-</div>
   <h1>Featured items</h1>
   <% @products.each do |product| %>
       <% if product.is_featured? %>
@@ -18,9 +13,10 @@ elderly products<br />
 
 <h1 class="">Categories</h1>
 <% @categories.each do |category| %>
-   <div class="categories">
-     <div class=""><img class= "product-thumb"  src="<%=category.image%>" /></div>
-    <%= link_to category.name, category_path(category.id), :class => "btn btn-primary btn-sm"%><br />
+   <div class="featured">
+     <div class="product-box-image no-float">
+       <img class= "product-thumb"  src="<%=category.image%>" />
+       <%= link_to category.name, category_path(category.id), :class => "btn btn-primary btn-sm"%><br />
+     </div>
    </div>
 <% end %>
-

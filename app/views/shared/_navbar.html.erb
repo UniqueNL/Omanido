@@ -14,19 +14,17 @@
     <div id="navbar" class="">
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", root_path %></li>
-
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/categories/13">Klokken</a></li>
-            <li><a href="/categories/14">Telefoons</a></li>
-            <li><a href="/categories/15">Vergrootglazen</a></li>
-            <li><a href="/categories/16">Keuken</a></li>
-            <li><a href="/categories/17">Badkamer</a></li>
-            <li><a href="/categories/18">Slaapkamer</a></li>
-          </ul>
           <li><%= link_to "All products", products_path %></li>
+          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% @categories.each do |c| %>
+              <li><a href="/categories/<%= c.id %>"><%= c.name %></a></li>
+              <% end %>
+            </ul>
+          </li>
+
         </ul>
-        <div style="float:left; margin:12px 0 0 10px;"><%= form_tag(products_path, :method => "get", id: "search-form") do %>
+        <div style="float: left; margin: 13px 0 0 10px;"><%= form_tag(products_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search products" %>
         <%= submit_tag "Search" %>
         <% end %>
@@ -53,7 +51,7 @@
                   <li><%= link_to "Edit Password", edit_user_registration_path %></li>
 
                   <li role="separator" class="divider"></li>
-                  <% if current_user && current_user.is_admin? %>
+                  <% if current_user.is_admin? %>
                       <li class="dropdown-header">Admin tools</li>
                       <li><%= link_to "Add products", new_product_path %></li>
                       <li role="separator" class="divider"></li>
