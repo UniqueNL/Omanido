@@ -1,0 +1,12 @@
+<h1>Check yor order</h1>
+
+
+
+<%total = 0%>
+<% @cart.each do | id, amount| %>
+   <h4> <% product = Product.find_by_id( id)%> <%= product.name %></> <b>Price: </b><%= number_to_currency(product.price, unit: '€') %> <b>Amount: </b><%=  0 + amount%> </h4>
+      <% total += amount * product.price%>
+
+<% end %>
+
+<p>Totaal: <%= number_to_currency(total, unit: '€') %></p>
