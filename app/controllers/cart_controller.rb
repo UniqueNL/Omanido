@@ -1,5 +1,17 @@
 class CartController < ApplicationController
 
+  def is_signed_in?
+    if !is_signed_in?
+      redirect_to current_user_session_path
+    else
+      redirect_to checkout_path
+    end
+  end
+
+  def new
+    @checkout = checkout.new
+  end
+
   def add
     id = params[:id]
     if session[:cart] then
@@ -30,5 +42,16 @@ class CartController < ApplicationController
       @cart = {}
     end
   end
+
+  def checkout
+
+    if session[:cart] then
+      @cart = session[:cart]
+    else
+      @cart = {}
+    end
+  end
+
+
 
 end
