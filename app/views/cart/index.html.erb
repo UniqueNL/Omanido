@@ -6,22 +6,7 @@
 <br>
 <br>
 <br>
-    <%total = 0%>
-    <% @cart.each do | id, amount| %>
-      <% product = Product.find_by_id( id)%>
-        <div class="product-cart">
-          <h4><%= product.name %></h4>
-          <h5><b>Omschrijving:</b></h5>
-          <%= product.description %>
-          <p><img src="<%= product.image %>" width="100" /></p>
-          <p><b>Price: </b><%= number_to_currency(product.price, unit: '€') %></p>
-          <p><b>Amount: </b><%=  0 + amount%></p>
-          <%= link_to "Go to product page", product %>
-          <% total += amount * product.price%>
-        </div>
-    <% end %>
-<p>Totaal: <%= number_to_currency(total, unit: '€') %></p>
-
+<%= render 'list' %>
 
 <div class="btn btn-success">
   <% if current_user %>
