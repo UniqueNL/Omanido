@@ -29,6 +29,7 @@ class CartController < ApplicationController
     else
       @cart[id] = 1
     end
+    session[:cart] = @cart
   end
 
 
@@ -43,6 +44,10 @@ class CartController < ApplicationController
     else
       @cart = {}
     end
+  end
+
+  def show_amount
+    @total_amount = session[:cart].amount
   end
 
   def checkout

@@ -14,19 +14,10 @@
       <%= link_to "Show detailed information", product_path( product.id ), :class => "btn btn-primary btn-sm" %>
     </div>
     <div class="product-box-price">
-      <h2>€ <%= product.price %></h2>
-      <a href="/cart/#{product.id}" class="cartLink">cart</a>
+      <h2><%= number_to_currency(product.price, unit: '€') %></h2>
       <%= link_to("/cart/#{product.id}", method: :post, remote: true) do %>
-        <div class="product-buy-button btn btn-success">Add To Cart</div>
+        <div class="product-buy-button btn btn-success product-add">Add To Cart</div>
       <% end %>
-
-
-
-
-
-
-
-
     </div>
   </div>
   <div class="clear"></div>
