@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  helper_method :sort_products, :sort_direction
+
   def index
     @categories = Category.all
   end
@@ -55,20 +57,6 @@ class CategoriesController < ApplicationController
   end
 end
 
-# considered unsafe -> SQL injections
-# TODO !!!! sanitize this!
-def sort_products
-  # defaults to "name"
-  params[:sort] || "name"
-end
 
-# considered unsafe -> SQL injections
-# TODO !!!! sanitize this!
-def sort_direction
-  params[:direction] || "asc"
-end
-
-# http://railscasts.com/episodes/228-sortable-table-columns?view=asciicast
-# http://railscasts.com/episodes/228-sortable-table-columns?autoplay=true
 
 
