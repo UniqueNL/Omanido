@@ -1,5 +1,9 @@
   <h1><%= @category.name %></h1>
 
+  <p><%= sortable "name", "Sort by name" %></p>
+  <p><%= sortable "price", "Sort by price" %></p>
+  <p><%= sortable "created_at", "Sort by newest" %></p>
+
   <% @products.each do |product| %>
       <% if product.category[:id] == @category[:id] %>
       <div class="product-box">

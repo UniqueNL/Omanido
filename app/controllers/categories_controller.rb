@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  helper_method :sort_products, :sort_direction
+
   def index
     @categories = Category.all
   end
@@ -7,6 +9,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @categories = Category.all
     @products = Product.all
+    @products = Product.order(sort_products + ' ' + sort_direction)
   end
 
   def edit
@@ -17,6 +20,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     location_params = params.require( :category ).permit( :name )
+
 
     if @category.update_attributes( location_params )
       redirect_to @category
@@ -52,3 +56,7 @@ class CategoriesController < ApplicationController
     end
   end
 end
+
+
+
+
