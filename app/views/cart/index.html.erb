@@ -7,4 +7,13 @@
 <br>
 <br>
 <%= render 'list' %>
-<div class="btn btn-success">Checkout (week 2, not implemented)</div>
+
+<div class="btn btn-success">
+  <% if current_user %>
+      <div class="btn btn-success"> <%= link_to "Checkout", checkout_path %></div>
+  <% else %>
+      <%= link_to "Login/sign up before checkout", new_user_session_path %></div>
+  <% end %>
+
+
+
