@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   get '/cart' => "cart#index"
   get '/cart/clear' => "cart#clear_cart"
   get '/cart/:id' => "cart#add"
-  get '/checkout' => "cart#checkout"
+<<<<<<< HEAD
+  
   post '/cart/:id' => "cart#create"
+=======
+  get '/checkout' => "cart#checkout"
+
+>>>>>>> master
   get 'pages/home'
 
 

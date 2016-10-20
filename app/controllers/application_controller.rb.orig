@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+<<<<<<< HEAD
 
   # considered unsafe -> SQL injections
   # TODO !!!! sanitize this!
@@ -18,6 +19,8 @@ class ApplicationController < ActionController::Base
 # http://railscasts.com/episodes/228-sortable-table-columns?autoplay=true
 
 
+
+=======
   before_action :show_categories
   before_action :set_cart
 
@@ -30,5 +33,6 @@ class ApplicationController < ActionController::Base
       @cart = session[:cart]
       @cart ||= {}
     end
+>>>>>>> master
 
 end

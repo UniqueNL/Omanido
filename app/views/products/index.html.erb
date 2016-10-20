@@ -5,22 +5,29 @@
 <p><%= sortable "price", "Sort by price" %></p>
 <p><%= sortable "created_at", "Sort by newest" %></p>
 
-  <% @products.each do |product| %>
-    <div class="product-box">
-      <div class="product-box-image"><img class= "product-thumb"  src="<%=product.image%>" /></div>
-      <div class="product-box-text">
-        <h1><%= link_to product.name, product_path(product.id)%></h1>
-        <p><%= product.short_description %></p>
-        <%= link_to "Show detailed information", product_path( product.id ), :class => "btn btn-primary btn-sm" %>
-      </div>
-      <div class="product-box-price">
-        <h2>€ <%= product.price %></h2>
+<% @products.each do |product| %>
+  <div class="product-box">
+    <div class="product-box-image"><img class= "product-thumb"  src="<%=product.image%>" /></div>
+    <div class="product-box-text">
+      <h1><%= link_to product.name, product_path(product.id)%></h1>
+      <p><%= product.short_description %></p>
+      <%= link_to "Show detailed information", product_path( product.id ), :class => "btn btn-primary btn-sm" %>
+    </div>
+    <div class="product-box-price">
+      <h2>€ <%= product.price %></h2>
+      <a href="/cart/#{product.id}" class="cartLink">cart</a>
+      <%= link_to("/cart/#{product.id}", method: :post, remote: true) do %>
+        <div class="product-buy-button btn btn-success">Add To Cart</div>
+      <% end %>
 
-              <a href=" /cart/<%= product.id %>"><div class="product-buy-button btn btn-success">Add To Cart</div></a>
-      </div>
+
+
+
+
+
+
 
     </div>
-
-    <div class="clear"></div>
-
-  <%end%>
+  </div>
+  <div class="clear"></div>
+<% end %>

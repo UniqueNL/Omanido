@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
    helper_method :sort_products, :sort_direction
 
-
   def index
     if params[:search]
       @products = Product.search(params[:search]).order_by_name
@@ -66,4 +65,3 @@ class ProductsController < ApplicationController
 
 
 end
-

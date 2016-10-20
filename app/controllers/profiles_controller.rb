@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    @categories = Category.all
   end
 
   def create
