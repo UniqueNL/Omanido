@@ -12,8 +12,10 @@
 
 
 <div class="btn btn-success">
-  <% if current_user %>
+  <% if current_user && @cart.count != 0%>
       <%= link_to "Checkout", checkout_path %>
+  <% elsif current_user && @cart.count == 0 %>
+      Add something to your cart first before you can pay!
   <% else %>
       <%= link_to "Login/sign up before checkout", new_user_session_path %></div>
   <% end %>

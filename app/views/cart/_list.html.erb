@@ -13,4 +13,5 @@
 
   <hr />
 <% end %>
-<span class="total_cart">Total: <%= number_to_currency(total, unit: '€') %></span>
+<span class="total_cart"><b>VAT: </b><%= (total*0.21).round(2) %></span><br />
+<span class="total_cart"><b>Total price:</b> <%= number_to_currency(total, unit: '€') %></span>
