@@ -2,17 +2,16 @@
   Currently paying...
 </div>
 
-<h1>Check your order</h1>
+<h1>Thanks for ordering!</h1>
+<p>We are currently sending your order to your address.</p>
 
 
 
-<%total = 0%>
-<% @cart.each do | id, amount| %>
-   <h4> <% product = Product.find_by_id( id)%> <%= product.name %></> <b>Price: </b><%= number_to_currency(product.price, unit: '€') %> <b>Amount: </b><%=  0 + amount%> </h4>
-      <% total += amount * product.price%>
 
-<% end %>
+<div class="checkout">
+<%= render 'list' %>
+</div>
 
-<p>Totaal: <%= number_to_currency(total, unit: '€') %></p>
+
 <br /><br />
-<%= link_to 'Return to cart >>', cart_clear_path %> -
+<%= link_to 'Return', cart_clear_path%> -
