@@ -4,7 +4,7 @@
   <div class="product-cart">
     <p><img src="<%= product.image %>" width="100" /></p>
     <h4><%= link_to product.name, product %></h4>
-    <h5><b>Omschrijving:</b></h5>
+    <h5><b>Description:</b></h5>
     <h6><%= product.description %></h6>
     <span class="price_cart"><b>Price: </b><%= number_to_currency(product.price, unit: '€') %></span>
     <span class="amount_cart">&nbsp;&nbsp;&nbsp;<b>Amount: </b><%=  0 + amount%></span><br />
