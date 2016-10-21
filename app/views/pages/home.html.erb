@@ -5,7 +5,7 @@
     <div class="featured">
       <div class="product-box-image no-float"><img class= "product-thumb"  src="<%=product.image%>" /></div>
       <%= link_to product.name, product_path(product.id)%><br />
-      € <%= product.price %><br />
+      <%= number_to_currency(product.price, unit: '€') %><br />
       <%= link_to "Show detailed information", product_path( product.id ), :class => "btn btn-primary btn-sm" %>
             </div>
     <% end %>
