@@ -1,4 +1,8 @@
-<h1>Check yor order</h1>
+<div class="loadingscreen">
+  Currently paying...
+</div>
+
+<h1>Check your order</h1>
 
 
 
@@ -10,3 +14,5 @@
 <% end %>
 
 <p>Totaal: <%= number_to_currency(total, unit: '€') %></p>
+<br /><br />
+<%= link_to 'Return to cart >>', cart_clear_path %> -
