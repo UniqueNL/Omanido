@@ -12,6 +12,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.date :birth_date
       t.boolean :dead
       t.boolean :newsletter
+      t.belongs_to :user, index: true
 
       t.timestamps
     end
