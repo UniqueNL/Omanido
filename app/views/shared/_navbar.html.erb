@@ -32,14 +32,15 @@
 
 
         <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to 'View cart', cart_path %></li>
 
-              <li class="dropdown">
+
+              <li id="shoppingcart" class="dropdown">
                 <a href="#" class="dropdown-toggle cart-dropdown-check" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Cart 2
+                  Shopping Cart&nbsp;<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                   <li id="cart-content"><%= render 'cart/list' %></li>
+                  <li class="view_all list-group-item list-group-item-success"><%= link_to 'View cart', cart_path %></li>
                 </ul>
               </li>
 

@@ -13,5 +13,8 @@ $(function() {
 $(document).ready(function() {
     $('.product-add').click(function(){
       $('.cart-dropdown-check').delay(200).fadeTo('fast', 0.1).delay(50).fadeTo('fast', 1);
+      $('.navbar .dropdown:first').addClass('open');
     });
+
+    $('.loadingscreen').delay(3000).fadeOut();
 });
