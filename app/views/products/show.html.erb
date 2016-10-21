@@ -18,7 +18,7 @@
 <p><%=@product.description%></p>
 
 <!--price-->
-<h2>Price: <%=@product.price%></h2>
+<h2>Price: <%= number_to_currency(@product.price, unit: '€')%></h2>
 
 <!--color-->
 <h3><%=@product.color%></h3>
